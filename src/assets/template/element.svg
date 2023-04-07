@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   sodipodi:docname="element.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.35170029"
+     inkscape:cx="-248.79138"
+     inkscape:cy="487.6311"
+     inkscape:window-width="1512"
+     inkscape:window-height="831"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:lockguides="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="background"
+     transform="translate(209.02199,-1.5109964)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#f4f5ff;fill-opacity:1;stroke-width:0.202935"
+       id="rect1053"
+       width="197.43764"
+       height="286.08313"
+       x="-202.47432"
+       y="7.0513439"
+       inkscape:label="margin-text" />
+  </g>
+  <g
+     inkscape:label="main"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-weight:bold;font-size:111.478px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000;fill-opacity:1;stroke-width:0.78409"
+       x="59.77"
+       y="156.13689"
+       id="symbol"
+       sodipodi:insensitive="true"><tspan
+         id="tspan254"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:111.478px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke-width:0.78409"
+         x="59.77"
+         y="156.13689"
+         sodipodi:role="line">H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.8667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#152530;fill-opacity:1;stroke-width:0.202935"
+       x="9.0660143"
+       y="31.227381"
+       id="atomic-no"
+       sodipodi:insensitive="true"><tspan
+         sodipodi:role="line"
+         id="tspan970"
+         style="font-size:33.8667px;fill:#152530;fill-opacity:1;stroke-width:0.202935"
+         x="9.0660143"
+         y="31.227381">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#202020;fill-opacity:1;stroke-width:0.202935"
+       x="130.29192"
+       y="26.511257"
+       id="atomic-no-7"
+       inkscape:label="atomic-mass"
+       sodipodi:insensitive="true"><tspan
+         sodipodi:role="line"
+         id="tspan970-1"
+         style="font-size:22.5778px;fill:#202020;fill-opacity:1;stroke-width:0.202935"
+         x="130.29192"
+         y="26.511257">1.008</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#152530;fill-opacity:1;stroke-width:0.202935"
+       x="46.841068"
+       y="195.42297"
+       id="text2472"
+       inkscape:label="name"
+       sodipodi:insensitive="true"><tspan
+         sodipodi:role="line"
+         id="tspan2470"
+         style="stroke-width:0.202935"
+         x="46.841068"
+         y="195.42297">Hydrogen</tspan></text>
+    <g
+       id="g2486"
+       inkscape:label="shell"
+       transform="translate(10.275251,-27.208666)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#152530;fill-opacity:1;stroke-width:0.202935"
+         x="77.364647"
+         y="265.49084"
+         id="text2476"
+         inkscape:label="spdf"><tspan
+           sodipodi:role="line"
+           id="tspan2474"
+           style="stroke-width:0.202935"
+           x="77.364647"
+           y="265.49084">1s</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.05px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#152530;fill-opacity:1;stroke-width:0.202935"
+         x="108.2142"
+         y="256.17944"
+         id="text2480"
+         inkscape:label="shell"><tspan
+           sodipodi:role="line"
+           id="tspan2478"
+           style="font-size:19.05px;stroke-width:0.202935"
+           x="108.2142"
+           y="256.17944">1</tspan></text>
+    </g>
+  </g>
+</svg>
