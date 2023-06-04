@@ -43,7 +43,50 @@ const data =   {
   }
 }
 
-export default function Element({element = data}) {
+export interface EConfShellType {
+  n : string
+  o : string
+}
+
+export interface EConfType {
+  base : string
+  s?   : EConfShellType
+  p?   : EConfShellType
+  d?   : EConfShellType
+  f?   : EConfShellType
+}
+
+export interface ElementType {
+  name             : string
+  appearance       : string
+  atomic_mass      : number
+  boil             : number
+  category         : string
+  color            : string
+  density          : number
+  discovered_by    : string
+  melt             : number
+  molar_heat       : number
+  named_by         : string
+  number           : number
+  period           : number
+  phase            : string
+  source           : string
+  spectral_img     : string
+  summary          : string
+  symbol           : string
+  xpos             : number
+  ypos             : number
+  shells           : [number]
+  group            : number
+  econf            : EConfType
+}
+
+interface ElementCellProps {
+  element : ElementType
+}
+
+export function ElementCell({element} : ElementCellProps) {
   
   return <div class="grid grid-auto-rows el-container px-1">
     {/* Top Header Line */}
@@ -52,7 +95,7 @@ export default function Element({element = data}) {
           {element.number}
         </div>
         <div class="el-atomic-mass text-right">
-          {element.atomic_mass}
+          {element.atomic_mass.toFixed(2)}
         </div>
     </div>
     {/* Middle Element Body */}
@@ -71,17 +114,20 @@ export default function Element({element = data}) {
       </div>
     </div>
     {/* Element footer */}
-    <ElectronConfiguration element={data}></ElectronConfiguration>
+    {/* <ElectronConfiguration econf={data.econf}></ElectronConfiguration> */}
   </div>
 }
 
-function ElectronConfiguration({element = data}) {
-  const econf = element.econf
-  
+
+export interface EConfPropsType {
+  econf : EConfType
+}
+
+export function ElectronConfiguration({econf} : EConfPropsType) {
   return <div class="grid grid-col-1">
     <div class = "text-center el-orbitals">
       {
-        Object.entries(econf).map(([confkey, confobj] : [string, string | {"n" : string, "o" : string}]) => {
+        Object.entries(econf).map(([confkey, confobj]) => {
           if (typeof confobj === "string" ) return <span class = "el-conf-element">{confobj.toString()}</span>
           return <span class = "el-conf-element">
               <span>{confobj.n}</span>

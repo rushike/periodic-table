@@ -5,6 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
@@ -13,5 +14,6 @@
     "isolatedModules": true,
 
     "baseUrl": "src",
-  }
+  },
+  // "include": ["vite.config.ts"]
 }
