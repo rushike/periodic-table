@@ -25,51 +25,71 @@ const data =   {
   "shells": [
     1
   ],
-  "group": 1
+  "group": 1,
+  "econf": {
+    "base": "[Rn]",
+    "d": {
+      "n": "6",
+      "o": "10"
+    },
+    "s": {
+      "n": "7",
+      "o": "2"
+    },
+    "p": {
+      "n": "7",
+      "o": "6"
+    }
+  }
 }
 
 export default function Element({element = data}) {
   
   return <div class="grid grid-auto-rows el-container px-1">
-    <ElementHeader atomic_mass={element.atomic_mass} atomic_no={element.number}></ElementHeader>
-    <ElementBody></ElementBody>
-    <ElementFooter></ElementFooter>
-  </div>
-}
-
-function ElementHeader ({atomic_no, atomic_mass} : {atomic_no : number, atomic_mass : number}) {
-  return <div class="grid grid-cols-2">
+    {/* Top Header Line */}
+    <div class="grid grid-cols-2">
         <div class = "el-atomic-no">
-          {atomic_no}
+          {element.number}
         </div>
         <div class="el-atomic-mass text-right">
-          {atomic_mass}
+          {element.atomic_mass}
         </div>
     </div>
-}
-
-function ElementBody ({element = data}) {
-  var {symbol, name} = element
-  return <div class="grid grid-auto-rows">
-    <div class="grid grid-cols-6">
-      <div></div>
-      <div class="col-span-4 text-center p-0 el-symbol">
-        {symbol}
+    {/* Middle Element Body */}
+    <div class="grid grid-auto-rows">
+      <div class="grid grid-cols-6">
+        <div></div>
+        <div class="col-span-4 text-center p-0 el-symbol">
+          {element.symbol}
+        </div>
+        <div></div>
       </div>
-      <div></div>
-    </div>
-    <div>
-      <div class="text-center el-name">
-        {name}
+      <div>
+        <div class="text-center el-name">
+          {element.name}
+        </div>
       </div>
     </div>
+    {/* Element footer */}
+    <ElectronConfiguration element={data}></ElectronConfiguration>
   </div>
 }
 
-function ElementFooter() {
+function ElectronConfiguration({element = data}) {
+  const econf = element.econf
+  
   return <div class="grid grid-col-1">
     <div class = "text-center el-orbitals">
-      <span>1</span><span>s</span><sup>1</sup>
+      {
+        Object.entries(econf).map(([confkey, confobj] : [string, string | {"n" : string, "o" : string}]) => {
+          if (typeof confobj === "string" ) return <span class = "el-conf-element">{confobj.toString()}</span>
+          return <span class = "el-conf-element">
+              <span>{confobj.n}</span>
+              <span>{confkey}</span>
+              <sup>{confobj.o}</sup>
+            </span>
+        })
+      }
     </div>
   </div>
 }
