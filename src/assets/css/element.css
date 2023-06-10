@@ -1,7 +1,5 @@
 .el-container {
   border : 1px solid;
-  width: 5rem;
-
 }
 
 .el-layer {
@@ -13,19 +11,19 @@
 }
 
 .el-atomic-mass {
-  font-size: 0.625rem;
+  font-size: 0.6rem;
 }
 
 .el-atomic-no {
-  font-size: 0.625rem;
+  font-size: 0.6rem;
 }
 
 .el-symbol {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .el-name {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .el-orbitals {
