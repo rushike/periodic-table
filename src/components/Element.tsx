@@ -1,4 +1,5 @@
 import "@/assets/css/element.css"
+import { JSX } from "solid-js/jsx-runtime"
 
 const COLOR_PALETTE :  {[key: string]: string} = {
   "alkali-metal"          : "#ff4040",
@@ -52,35 +53,63 @@ export interface ElementType {
   econf            : EConfType
 }
 
-interface ElementCellProps {
-  element : ElementType
+export interface StyleProps {
+  bg_color? :   string,
+  size?     :   number
 }
 
-export function ElementCell({element} : ElementCellProps) {
-  
-  return <div class="grid grid-auto-rows el-container px-1" style={{"background-color" : `${COLOR_PALETTE[element.category]}`}}>
+interface ElementCellProps {
+  element      : ElementType,
+  style_props? : StyleProps
+}
+
+function AtomicNumberLabel({atomic_no, size} : {atomic_no : number, size : number}) {
+  return <div class = "col-span-2"  style={{"font-size" : `${size * 2}px`}}>
+      {atomic_no}
+    </div>
+}
+
+function AtomicMassLabel({atomic_mass, size} : {atomic_mass : number, size : number}) {
+  return <div class="text-right col-span-4" style={{"font-size" : `${size * 2}px`}}>
+    {atomic_mass.toPrecision(3)}
+  </div>
+}
+
+function SymbolLabel({symbol, size} : {symbol : string, size : number}) {
+  return <div class="col-span-4 text-center p-0" style={{"font-size" : `${size * 5}px`}}>
+    {symbol}
+  </div>
+
+}
+
+function NameLabel({name, size} : {name : string, size : number}) {
+  let name_size = 8
+  return <div class="text-center" style={{"font-size" : `${size * 2}px`}}>
+    {name.length >  name_size ? `${name.substring(0, name_size - 2)}..` : name}
+  </div>
+}
+
+export function ElementCell({element, style_props} : ElementCellProps) {
+  let styles : JSX.CSSProperties = {
+    "background-color": style_props?.bg_color || COLOR_PALETTE[element.category],
+    "border" : "0.25px solid"
+  }
+
+  let size = 3
+
+  return <div class="grid grid-auto-rows" style={styles}>
     {/* Top Header Line */}
-    <div class="grid grid-cols-2">
-        <div class = "el-atomic-no">
-          {element.number}
-        </div>
-        <div class="el-atomic-mass text-right">
-          {element.atomic_mass.toFixed(2)}
-        </div>
+    <div class="grid grid-cols-6">
+        <AtomicNumberLabel atomic_no={element.number}        size = {size}></AtomicNumberLabel>
+        <AtomicMassLabel   atomic_mass={element.atomic_mass} size = {size}></AtomicMassLabel>
     </div>
     {/* Middle Element Body */}
     <div class="grid grid-auto-rows">
-      <div class="grid grid-cols-6">
-        <div></div>
-        <div class="col-span-4 text-center p-0 el-symbol">
-          {element.symbol}
-        </div>
-        <div></div>
+      <div class="grid grid-cols-6 text-center">
+        <SymbolLabel symbol={element.symbol} size={size}></SymbolLabel>
       </div>
       <div>
-        <div class="text-center el-name">
-          {element.name}
-        </div>
+        <NameLabel name = {element.name} size={size}></NameLabel>
       </div>
     </div>
     {/* Element footer */}

@@ -1,0 +1,118 @@
+1 H hydrogen : 1s1
+2 He helium : 1s2
+3 Li lithium : [He] 2s1
+4 Be beryllium : [He] 2s2
+5 B boron : [He] 2s2 2p1
+6 C carbon : [He] 2s2 2p2
+7 N nitrogen : [He] 2s2 2p3
+8 O oxygen : [He] 2s2 2p4
+9 F fluorine : [He] 2s2 2p5
+10 Ne neon : [He] 2s2 2p6
+11 Na sodium : [Ne] 3s1
+12 Mg magnesium : [Ne] 3s2
+13 Al aluminium : [Ne] 3s2 3p1
+14 Si silicon : [Ne] 3s2 3p2
+15 P phosphorus : [Ne] 3s2 3p3
+16 S sulfur : [Ne] 3s2 3p4
+17 Cl chlorine : [Ne] 3s2 3p5
+18 Ar argon : [Ne] 3s2 3p6
+19 K potassium : [Ar] 4s1
+20 Ca calcium : [Ar] 4s2
+21 Sc scandium : [Ar] 3d1 4s2
+22 Ti titanium : [Ar] 3d2 4s2
+23 V vanadium : [Ar] 3d3 4s2
+24 Cr chromium : [Ar] 3d5 4s1
+25 Mn manganese : [Ar] 3d5 4s2
+26 Fe iron : [Ar] 3d6 4s2
+27 Co cobalt : [Ar] 3d7 4s2
+28 Ni nickel : [Ar] 3d8 4s2
+29 Cu copper : [Ar] 3d10 4s1
+30 Zn zinc : [Ar] 3d10 4s2
+31 Ga gallium : [Ar] 3d10 4s2 4p1
+32 Ge germanium : [Ar] 3d10 4s2 4p2
+33 As arsenic : [Ar] 3d10 4s2 4p3
+34 Se selenium : [Ar] 3d10 4s2 4p4
+35 Br bromine : [Ar] 3d10 4s2 4p5
+36 Kr krypton : [Ar] 3d10 4s2 4p6
+37 Rb rubidium : [Kr] 5s1
+38 Sr strontium : [Kr] 5s2
+39 Y yttrium : [Kr] 4d1 5s2
+40 Zr zirconium : [Kr] 4d2 5s2
+41 Nb niobium : [Kr] 4d4 5s1
+42 Mo molybdenum : [Kr] 4d5 5s1
+43 Tc technetium : [Kr] 4d5 5s2
+44 Ru ruthenium : [Kr] 4d7 5s1
+45 Rh rhodium : [Kr] 4d8 5s1
+46 Pd palladium : [Kr] 4d10
+47 Ag silver : [Kr] 4d10 5s1
+48 Cd cadmium : [Kr] 4d10 5s2
+49 In indium : [Kr] 4d10 5s2 5p1
+50 Sn tin : [Kr] 4d10 5s2 5p2
+51 Sb antimony : [Kr] 4d10 5s2 5p3
+52 Te tellurium : [Kr] 4d10 5s2 5p4
+53 I iodine : [Kr] 4d10 5s2 5p5
+54 Xe xenon : [Kr] 4d10 5s2 5p6
+55 Cs caesium : [Xe] 6s1
+56 Ba barium : [Xe] 6s2
+57 La lanthanum : [Xe] 5d1 6s2
+58 Ce cerium : [Xe] 4f1 5d1 6s2
+59 Pr praseodymium : [Xe] 4f3 6s2
+60 Nd neodymium : [Xe] 4f4 6s2
+61 Pm promethium : [Xe] 4f5 6s2
+62 Sm samarium : [Xe] 4f6 6s2
+63 Eu europium : [Xe] 4f7 6s2
+64 Gd gadolinium : [Xe] 4f7 5d1 6s2
+65 Tb terbium : [Xe] 4f9 6s2
+66 Dy dysprosium : [Xe] 4f10 6s2
+67 Ho holmium : [Xe] 4f11 6s2
+68 Er erbium : [Xe] 4f12 6s2
+69 Tm thulium : [Xe] 4f13 6s2
+70 Yb ytterbium : [Xe] 4f14 6s2
+71 Lu lutetium : [Xe] 4f14 5d1 6s2
+72 Hf hafnium : [Xe] 4f14 5d2 6s2
+73 Ta tantalum : [Xe] 4f14 5d3 6s2
+74 W tungsten : [Xe] 4f14 5d4 6s2
+75 Re rhenium : [Xe] 4f14 5d5 6s2
+76 Os osmium : [Xe] 4f14 5d6 6s2
+77 Ir iridium : [Xe] 4f14 5d7 6s2
+78 Pt platinum : [Xe] 4f14 5d9 6s1
+79 Au gold : [Xe] 4f14 5d10 6s1
+80 Hg mercury : [Xe] 4f14 5d10 6s2
+81 Tl thallium : [Xe] 4f14 5d10 6s2 6p1
+82 Pb lead : [Xe] 4f14 5d10 6s2 6p2
+83 Bi bismuth : [Xe] 4f14 5d10 6s2 6p3
+84 Po polonium : [Xe] 4f14 5d10 6s2 6p4
+85 At astatine : [Xe] 4f14 5d10 6s2 6p5
+86 Rn radon : [Xe] 4f14 5d10 6s2 6p6
+87 Fr francium : [Rn] 7s1
+88 Ra radium : [Rn] 7s2
+89 Ac actinium : [Rn] 6d1 7s2
+90 Th thorium : [Rn] 6d2 7s2
+91 Pa protactinium : [Rn] 5f2 6d1 7s2
+92 U uranium : [Rn] 5f3 6d1 7s2
+93 Np neptunium : [Rn] 5f4 6d1 7s2
+94 Pu plutonium : [Rn] 5f6 7s2
+95 Am americium : [Rn] 5f7 7s2
+96 Cm curium : [Rn] 5f7 6d1 7s2
+97 Bk berkelium : [Rn] 5f9 7s2
+98 Cf californium : [Rn] 5f10 7s2
+99 Es einsteinium : [Rn] 5f11 7s2
+100 Fm fermium : [Rn] 5f12 7s2
+101 Md mendelevium : [Rn] 5f13 7s2
+102 No nobelium : [Rn] 5f14 7s2
+103 Lr lawrencium : [Rn] 5f14 7s2 7p1
+104 Rf rutherfordium : [Rn] 5f14 6d2 7s2
+105 Db dubnium : [Rn] 5f14 6d3 7s2
+106 Sg seaborgium : [Rn] 5f14 6d4 7s2
+107 Bh bohrium : [Rn] 5f14 6d5 7s2
+108 Hs hassium : [Rn] 5f14 6d6 7s2
+109 Mt meitnerium : [Rn] 5f14 6d7 7s2
+110 Ds darmstadtium : [Rn] 5f14 6d8 7s2
+111 Rg roentgenium : [Rn] 5f14 6d9 7s2
+112 Cn copernicium : [Rn] 5f14 6d10 7s2
+113 Nh nihonium : [Rn] 5f14 6d10 7s2 7p1
+114 Fl flerovium : [Rn] 5f14 6d10 7s2 7p2
+115 Mc moscovium : [Rn] 5f14 6d10 7s2 7p3
+116 Lv livermorium : [Rn] 5f14 6d10 7s2 7p4
+117 Ts tennessine : [Rn] 5f14 6d10 7s2 7p5
+118 Og oganesson : [Rn] 5f14 6d10 7s2 7p6
