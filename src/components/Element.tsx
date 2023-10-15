@@ -1,5 +1,6 @@
 import "@/assets/css/element.css"
 import { JSX } from "solid-js/jsx-runtime"
+import { Layers } from "./Layers"
 
 const COLOR_PALETTE :  {[key: string]: string} = {
   "alkali-metal"          : "#ff4040",
@@ -20,7 +21,7 @@ export interface EConfShellType {
 }
 
 export interface EConfType {
-  base : string
+  base?: string
   s?   : EConfShellType
   p?   : EConfShellType
   d?   : EConfShellType
@@ -29,28 +30,28 @@ export interface EConfType {
 
 export interface ElementType {
   name             : string
-  appearance       : string
+  appearance       : string | null
   atomic_mass      : number
-  boil             : number
+  boil             : number | null
   category         : string
-  color            : string
-  density          : number
-  discovered_by    : string
-  melt             : number
-  molar_heat       : number
-  named_by         : string
+  color            : string | null
+  density          : number | null
+  discovered_by    : string | null
+  melt             : number | null
+  molar_heat       : number | null
+  named_by         : string | null
   number           : number
   period           : number
   phase            : string
   source           : string
-  spectral_img     : string
+  spectral_img     : string | null
   summary          : string
   symbol           : string
   xpos             : number
   ypos             : number
-  shells           : [number]
+  shells           : number[]
   group            : number
-  econf            : EConfType
+  econf?           : EConfType
 }
 
 export interface StyleProps {
@@ -75,6 +76,18 @@ function AtomicMassLabel({atomic_mass, size} : {atomic_mass : number, size : num
   </div>
 }
 
+function Left({children, size} : {children : any, size : number}) {
+  return <div class = "col-span-2"  style={{"font-size" : `${size }px`}}>
+      {children}
+    </div>
+}
+
+function Right({children, size} : {children : number, size : number}) {
+  return <div class="text-right col-span-4" style={{"font-size" : `${size }px`}}>
+    {children}
+  </div>
+}
+
 function SymbolLabel({symbol, size} : {symbol : string, size : number}) {
   return <div class="col-span-4 text-center p-0" style={{"font-size" : `${size * 5}px`}}>
     {symbol}
@@ -86,6 +99,38 @@ function NameLabel({name, size} : {name : string, size : number}) {
   let name_size = 8
   return <div class="text-center" style={{"font-size" : `${size * 2}px`}}>
     {name.length >  name_size ? `${name.substring(0, name_size - 2)}..` : name}
+  </div>
+}
+
+export function ElementDetailsCell({element, style_props} : ElementCellProps) {
+  let styles : JSX.CSSProperties = {
+    "background-color": style_props?.bg_color || COLOR_PALETTE[element.category],
+    "border" : "0.25px solid"
+  }
+
+  let size = 6
+
+  return <div class="grid grid-auto-rows" style={styles}>
+    {/* Top Header Line */}
+    <div class="grid grid-cols-6">
+        <AtomicNumberLabel atomic_no={element.number}        size = {size}></AtomicNumberLabel>
+        <AtomicMassLabel   atomic_mass={element.atomic_mass} size = {size}></AtomicMassLabel>
+    </div>
+    {/* Middle Element Body */}
+        <div class="grid grid-auto-rows">
+          <div class="text-center">
+            <SymbolLabel symbol={element.symbol} size={size}></SymbolLabel>
+          </div>
+          <div>
+            <NameLabel name = {element.name} size={size}></NameLabel>
+          </div>
+        </div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    {/* Element footer */}
+    <ElectronConfiguration econf={element.econf || {}}></ElectronConfiguration>
   </div>
 }
 

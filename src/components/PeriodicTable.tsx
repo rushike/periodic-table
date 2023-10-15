@@ -1,7 +1,8 @@
-import { ElementType, ElementCell } from "./Element";
+import { ElementType, ElementCell, EConfType, ElementDetailsCell } from './Element';
+import { Layers } from './Layers';
 
 interface StandardPeriodicTableProps {
-  elements : [ElementType]
+  elements : ElementType[]
 }
 
 const STANDARD_PERIODIC_TABLE_STRUCTURE =  [
@@ -18,12 +19,38 @@ const STANDARD_PERIODIC_TABLE_STRUCTURE =  [
 ]
 
 export function StandardPeriodicTable({elements} : StandardPeriodicTableProps) {
+  return <div style={{"width" : "600px"}}>
+    <PeriodicTableTitle></PeriodicTableTitle>
+    <br></br>
+    <Layers>
+      <DrawPeriodicTable elements={elements}></DrawPeriodicTable>
+      <HoverElementDetails element={elements[0]}></HoverElementDetails>
+    </Layers>
+  </div>
+}
+
+function PeriodicTableTitle() {
+  return <div class="text-center">
+    <div class="prose prose-headings:h1 font-bold">
+      Standard Periodic Table
+    </div>
+  </div>
+}
+
+function HoverElementDetails({element} : {element : ElementType}) {
+  return <div class = "grid grid-cols-9">
+    <div class="col-span-4"></div>
+    <div><ElementDetailsCell element={element}/></div>
+  </div>
+}
+
+function DrawPeriodicTable({elements} : StandardPeriodicTableProps) {
   var elements_map : {[key: number]: ElementType} = {}
   elements.reduce((acc, el) => {
     acc[el.number] = el; return acc
   }, elements_map )
   
-  return <div class="grid" style={{"width" : "600px"}}>{
+  return <div class="grid">{
     STANDARD_PERIODIC_TABLE_STRUCTURE.map(row => {
       return <div class="grid grid-cols-[repeat(18,calc(100%/18))] gap-x-0">
         {
