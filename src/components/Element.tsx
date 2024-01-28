@@ -1,6 +1,8 @@
 import "@/assets/css/element.css"
 import { JSX } from "solid-js/jsx-runtime"
 import { Layers } from "./Layers"
+import { fit_text } from '../utils';
+import { createEffect, createSignal, onMount } from "solid-js";
 
 const COLOR_PALETTE :  {[key: string]: string} = {
   "alkali-metal"          : "#ff4040",
@@ -71,7 +73,7 @@ function AtomicNumberLabel({atomic_no, size} : {atomic_no : number, size : numbe
 }
 
 function AtomicMassLabel({atomic_mass, size} : {atomic_mass : number, size : number}) {
-  return <div class="text-right col-span-4" style={{"font-size" : `${size * 2}px`}}>
+  return <div class="text-right col-span-4 " style={{"font-size" : `${size * 2}px`}}>
     {atomic_mass.toPrecision(3)}
   </div>
 }
@@ -89,16 +91,30 @@ function Right({children, size} : {children : number, size : number}) {
 }
 
 function SymbolLabel({symbol, size} : {symbol : string, size : number}) {
-  return <div class="col-span-4 text-center p-0" style={{"font-size" : `${size * 5}px`}}>
+  return <div class="col-span-4" style={{"font-size" : `${size * 5}px`}}>
     {symbol}
   </div>
 
 }
 
-function NameLabel({name, size} : {name : string, size : number}) {
+function NameLabel({name, size, truncate} : {name : string, size : number, truncate : boolean }) {
   let name_size = 8
-  return <div class="text-center" style={{"font-size" : `${size * 2}px`}}>
-    {name.length >  name_size ? `${name.substring(0, name_size - 2)}..` : name}
+  let id = `${name}-${size}`
+  const [stripped_name, set_stripped_name] = createSignal(name)
+  console.log("name element : ", document.getElementById(id));
+  // let striped_name = fit_text(name, 6, document.getElementById(id)?.offsetWidth || 0)
+
+  onMount(()=> {
+    
+    set_stripped_name(
+      fit_text(name, 6, document.getElementById(id)?.offsetWidth || 0, { truncate})
+    )
+    console.log("effect : ", stripped_name())
+  })
+
+  return <div id = {id} class="" style={{"font-size" : `${size * 2}px`}}>
+    {/* {name.length >  name_size ? `${name.substring(0, name_size - 3)}..` : name} */}
+    {stripped_name()}
   </div>
 }
 
@@ -110,28 +126,26 @@ export function ElementDetailsCell({element, style_props} : ElementCellProps) {
 
   let size = 6
 
-  return <div class="grid grid-auto-rows" style={styles}>
-    {/* Top Header Line */}
-    <div class="grid grid-cols-6">
-        <AtomicNumberLabel atomic_no={element.number}        size = {size}></AtomicNumberLabel>
-        <AtomicMassLabel   atomic_mass={element.atomic_mass} size = {size}></AtomicMassLabel>
-    </div>
-    {/* Middle Element Body */}
-        <div class="grid grid-auto-rows">
-          <div class="text-center">
-            <SymbolLabel symbol={element.symbol} size={size}></SymbolLabel>
-          </div>
-          <div>
-            <NameLabel name = {element.name} size={size}></NameLabel>
-          </div>
+  return <div class="grid grid-auto-rows  p-0 px-[0.2rem]" style={styles}>
+      {/* Top Header Line */}
+      <div class="grid grid-cols-6">
+          <AtomicNumberLabel atomic_no={element.number}        size = {size}></AtomicNumberLabel>
+          <AtomicMassLabel   atomic_mass={element.atomic_mass} size = {size}></AtomicMassLabel>
+      </div>
+      {/* Middle Element Body */}
+      <div class="grid grid-auto-rows">
+        <div class="font-bold">
+          <SymbolLabel symbol={element.symbol} size={size}></SymbolLabel>
         </div>
-    <div></div>
-    <div></div>
-    <div></div>
+        <div>
+          <NameLabel name = {element.name} size={size} truncate = {false}></NameLabel>
+        </div>
+      </div>
 
-    {/* Element footer */}
-    <ElectronConfiguration econf={element.econf || {}}></ElectronConfiguration>
-  </div>
+
+      {/* Element footer */}
+        <ElectronConfiguration econf={element.econf || {}}></ElectronConfiguration>
+    </div>
 }
 
 export function ElementCell({element, style_props} : ElementCellProps) {
@@ -142,19 +156,21 @@ export function ElementCell({element, style_props} : ElementCellProps) {
 
   let size = 3
 
-  return <div class="grid grid-auto-rows" style={styles}>
+  return <div class="grid grid-auto-rows p-0 pl-[0.2rem]" style={styles}>
     {/* Top Header Line */}
-    <div class="grid grid-cols-6">
-        <AtomicNumberLabel atomic_no={element.number}        size = {size}></AtomicNumberLabel>
-        <AtomicMassLabel   atomic_mass={element.atomic_mass} size = {size}></AtomicMassLabel>
+    <div class="grid grid-auto-rows">
+      <div class="grid grid-cols-6 ">
+          <AtomicNumberLabel atomic_no={element.number}        size = {size}></AtomicNumberLabel>
+          <AtomicMassLabel   atomic_mass={element.atomic_mass} size = {size}></AtomicMassLabel>
+      </div>
     </div>
     {/* Middle Element Body */}
     <div class="grid grid-auto-rows">
-      <div class="grid grid-cols-6 text-center">
+      <div class="grid grid-cols-6 font-bold">
         <SymbolLabel symbol={element.symbol} size={size}></SymbolLabel>
       </div>
       <div>
-        <NameLabel name = {element.name} size={size}></NameLabel>
+        <NameLabel name = {element.name} size={size} truncate = {true}></NameLabel>
       </div>
     </div>
     {/* Element footer */}
@@ -169,7 +185,7 @@ export interface EConfPropsType {
 
 export function ElectronConfiguration({econf} : EConfPropsType) {
   return <div class="grid grid-col-1">
-    <div class = "text-center el-orbitals">
+    <div class = "el-orbitals italic">
       {
         Object.entries(econf).map(([confkey, confobj]) => {
           if (typeof confobj === "string" ) return <span class = "el-conf-element">{confobj.toString()}</span>
